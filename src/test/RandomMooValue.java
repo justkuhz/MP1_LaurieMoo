@@ -6,7 +6,17 @@ public class RandomMooValue {
     private int secretValue;
 
     int getBigMooCount(int guess) {
+        int bigMooCounter = 0;
+        int[] secretArray = valueToArray(secretValue);
+        int[] guessArray = valueToArray(guess);
 
+        for (int i = 0; i < 4; i++){
+            if (guessArray[i] == secretArray[i]){
+                bigMooCounter++;
+            }
+        }
+
+        return bigMooCounter;
     }
 
     int getLittleMooCount(int guess) {
@@ -17,6 +27,17 @@ public class RandomMooValue {
         for (int i = 0; i < 4; i++){
             if (guessArray[i] == secretArray[i]) {
                 secretArray[i] = -1;
+            }
+        }
+
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j < 4; j++){
+                if (i == j) continue;
+                if (guessArray[i] == secretArray[j]){
+                    secretArray[j] = -1;
+                    littleMooCounter++;
+                    break;
+                }
             }
         }
 
