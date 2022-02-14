@@ -4,6 +4,12 @@ import java.util.*;
 
 public class RandomMooValue {
     private int secretValue;
+    private int guess;
+    Random rng = new Random();
+
+    public RandomMooValue(){
+        this.secretValue = rng.nextInt(10000);
+    }
 
     int getBigMooCount(int guess) {
         int bigMooCounter = 0;
@@ -15,8 +21,17 @@ public class RandomMooValue {
                 bigMooCounter++;
             }
         }
-
         return bigMooCounter;
+    }
+
+    void setGuess(int n){
+        if (n >= 0 || n < 10000) {
+            this.guess = n;
+        }
+    }
+
+    int getGuess(){
+        return guess;
     }
 
     int getLittleMooCount(int guess) {
@@ -56,7 +71,6 @@ public class RandomMooValue {
     }
 
     boolean setSecretValue() {
-        Random rng = new Random();
         secretValue = rng.nextInt(10000);
         if (secretValue >= 0 && secretValue < 10000) {
             return true;
