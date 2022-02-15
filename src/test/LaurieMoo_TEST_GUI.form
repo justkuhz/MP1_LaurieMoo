@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="test.LaurieMoo_TEST_GUI">
-  <grid id="27dc6" binding="TestPanel" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="TestPanel" layout-manager="GridLayoutManager" row-count="7" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
@@ -42,8 +42,9 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-9209734"/>
-          <foreground color="-1"/>
+          <background color="-1"/>
+          <disabledTextColor color="-16777216"/>
+          <foreground color="-16777216"/>
           <text value="0000"/>
         </properties>
       </component>
@@ -54,8 +55,8 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-10065045"/>
-          <foreground color="-1"/>
+          <background color="-720897"/>
+          <foreground color="-16777216"/>
           <text value="0000"/>
         </properties>
       </component>
@@ -128,6 +129,24 @@
           <font size="16"/>
           <foreground color="-16777216"/>
           <text value="No"/>
+        </properties>
+      </component>
+      <component id="5cd1f" class="javax.swing.JLabel" binding="debugField">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Debugger"/>
+        </properties>
+      </component>
+      <component id="7e36a" class="javax.swing.JLabel" binding="debugField2">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Debugger2"/>
         </properties>
       </component>
     </children>

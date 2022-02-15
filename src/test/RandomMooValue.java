@@ -41,7 +41,7 @@ public class RandomMooValue {
 
         for (int i = 0; i < 4; i++){
             if (guessArray[i] == secretArray[i]) {
-                secretArray[i] = -1;
+                guessArray[i] = -1;
             }
         }
 
@@ -49,7 +49,7 @@ public class RandomMooValue {
             for (int j = 0; j < 4; j++){
                 if (i == j) continue;
                 if (guessArray[i] == secretArray[j]){
-                    secretArray[j] = -1;
+                    guessArray[i] = -1;
                     littleMooCounter++;
                     break;
                 }
@@ -79,37 +79,45 @@ public class RandomMooValue {
     }
 
     boolean setSecretValue(int n) {
-        if (n >= 0 || n < 10000) {
+        if (n >= 0 && n < 10000) {
             secretValue = n;
             return true;
         }
-        System.out.println("The number you tried to set the secret value to is invalid.");
         return false;
     }
 
     int[] valueToArray(int num) {
         int[] arr = {0, 0, 0, 0};
-        if (num >= 1000 && num <= 9999) {
+        if (num >= 1000) {
             for (int i = 3; i >= 0; i--) {
                 arr[i] = num % 10;
                 num /= 10;
             }
         }
-        if (num >= 100 && num <= 999) {
+        else if (num >= 100) {
             for (int i = 3; i > 0; i--) {
                 arr[i] = num % 10;
                 num /= 10;
             }
-            if (num >= 10 && num <= 99) {
+        }
+        else if (num >= 10) {
                 arr[3] = num % 10;
                 arr[2] = num / 10;
-            }
-            else {
-                arr[3] = num;
-            }
         }
+        else {
+            arr[3] = num;
+            }
         return arr;
     }
+
+    String getArray(int[] arr){
+        String arg = "";
+        for (int i = 0; i < arr.length; i++){
+            arg += String.valueOf(arr[i]);
+        }
+        return arg;
+    }
 }
+
 
 
