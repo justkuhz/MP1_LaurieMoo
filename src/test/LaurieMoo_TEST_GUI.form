@@ -7,6 +7,7 @@
     </constraints>
     <properties>
       <background color="-17410"/>
+      <preferredSize width="500" height="250"/>
     </properties>
     <border type="none"/>
     <children>
@@ -41,7 +42,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-11927547"/>
+          <background color="-9209734"/>
           <foreground color="-1"/>
           <text value="0000"/>
         </properties>
@@ -53,7 +54,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-11927546"/>
+          <background color="-10065045"/>
           <foreground color="-1"/>
           <text value="0000"/>
         </properties>
@@ -79,7 +80,7 @@
           <text value="Number of MOO!"/>
         </properties>
       </component>
-      <component id="ff240" class="javax.swing.JLabel">
+      <component id="ff240" class="javax.swing.JLabel" binding="bigMooLabel">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -99,7 +100,7 @@
           <text value="Number of moo."/>
         </properties>
       </component>
-      <component id="5cac3" class="javax.swing.JLabel">
+      <component id="5cac3" class="javax.swing.JLabel" binding="littleMooLabel">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -119,7 +120,7 @@
           <text value="is correct guess:"/>
         </properties>
       </component>
-      <component id="3e198" class="javax.swing.JLabel">
+      <component id="3e198" class="javax.swing.JLabel" binding="correctGuessLabel">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
