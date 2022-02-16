@@ -42,6 +42,7 @@ public class RandomMooValue {
         for (int i = 0; i < 4; i++){
             if (guessArray[i] == secretArray[i]) {
                 guessArray[i] = -1;
+                secretArray[i] = -2;
             }
         }
 
