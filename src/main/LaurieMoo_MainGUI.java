@@ -53,54 +53,62 @@ public class LaurieMoo_MainGUI {
                 String lose = "Boo hoo -- no LaurieMOO.";
 
                 guessField.setEnabled(true);
+                mooOut.setVisible(true);
 
-                int newGuess = Integer.parseInt(guessField.getText());
-                if (newGuess >= 0 && newGuess < 10000) {
-                    guess = newGuess;
+                if (guessField.getText().length() == 4){
+                    int newGuess = Integer.parseInt(guessField.getText());
+
+                    if (newGuess >= 0 && newGuess < 10000) {
+                        guess = newGuess;
+                    }
+
+                    moo.setGuess(guess);
+
+                    if (moo.getGuess() > 999) { guessField.setText(String.valueOf(moo.getGuess())); }
+                    else if (moo.getGuess() > 99) {
+                        guessField.setText("0" + moo.getGuess());
+                    }
+                    else if (moo.getGuess() > 9) {
+                        guessField.setText(("00" + moo.getGuess()));
+                    }
+                    else guessField.setText("000" + moo.getGuess());
+
+                    bigMoos = moo.getBigMooCount(guess);
+                    littleMoos = moo.getLittleMooCount(guess);
+
+                    if (bigMoos + littleMoos == 0){
+                        mooOut.setVisible(true);
+                        mooOut.setText(cowbell);
+                    }
+                    else {
+                        for (int i = 0; i < bigMoos; i++) {
+                            moos += "MOO! ";
+                        }
+                        for (int i = 0; i < littleMoos; i++) {
+                            moos += "moo. ";
+                        }
+                        mooOut.setVisible(true);
+                        mooOut.setText(moos);
+
+                        guessCounter++;
+
+                        if (moo.isCorrectGuess(moo.getGuess()) == true) {
+                            endOut.setVisible(true);
+                            endOut.setText(victory);
+                            tryAgain.setVisible(true);
+                        }
+
+                        if (guessCounter >= 11) {
+                            endOut.setVisible(true);
+                            endOut.setText(lose);
+                            tryAgain.setVisible(true);
+                        }
+                        else guessNum.setText("Guess #" + guessCounter + ": ");
+                    }
                 }
-
-                moo.setGuess(guess);
-
-                if (moo.getGuess() > 999) { guessField.setText(String.valueOf(moo.getGuess())); }
-                else if (moo.getGuess() > 99) {
-                    guessField.setText("0" + moo.getGuess());
-                }
-                else if (moo.getGuess() > 9) {
-                    guessField.setText(("00" + moo.getGuess()));
-                }
-                else guessField.setText("000" + moo.getGuess());
-
-                bigMoos = moo.getBigMooCount(guess);
-                littleMoos = moo.getLittleMooCount(guess);
-
-                if (bigMoos + littleMoos == 0){
+                else{
                     mooOut.setVisible(true);
-                    mooOut.setText(cowbell);
-                }
-                else {
-                    for (int i = 0; i < bigMoos; i++) {
-                        moos += "MOO! ";
-                    }
-                    for (int i = 0; i < littleMoos; i++) {
-                        moos += "moo. ";
-                    }
-                    mooOut.setVisible(true);
-                    mooOut.setText(moos);
-
-                    guessCounter++;
-
-                    if (moo.isCorrectGuess(moo.getGuess()) == true) {
-                        endOut.setVisible(true);
-                        endOut.setText(victory);
-                        tryAgain.setVisible(true);
-                    }
-
-                    if(guessCounter == 11) {
-                        endOut.setText(lose);
-                        tryAgain.setVisible(true);
-                    }
-                    else guessNum.setText("Guess #" + guessCounter + ": ");
-
+                    mooOut.setText("That is not a valid input. Please try Again.");
                 }
             }
         });
@@ -109,6 +117,10 @@ public class LaurieMoo_MainGUI {
             public void actionPerformed(ActionEvent e) {
                 moo.setSecretValue();
                 guessCounter = 1;
+                guessNum.setText("Guess #" + guessCounter + ": ");
+                endOut.setVisible(false);
+                mooOut.setVisible(false);
+                secretValue.setVisible(false);
                 tryAgain.setVisible(false);
             }
         });

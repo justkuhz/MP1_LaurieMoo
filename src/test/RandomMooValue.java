@@ -51,6 +51,7 @@ public class RandomMooValue {
                 if (i == j) continue;
                 if (guessArray[i] == secretArray[j]){
                     guessArray[i] = -1;
+                    secretArray[j] = -2;
                     littleMooCounter++;
                     break;
                 }
