@@ -1,5 +1,6 @@
 package main;
 
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +34,8 @@ public class LaurieMoo_MainGUI {
         tryAgain.setVisible(false);
         endOut.setVisible(false);
 
+        // "C:\\Users\\Ken\\Desktop\\School\\Year1\\Sem2\\Programming 2\\MP1_LaurieMoo\\src\\resources\\images\\cowBackground.jpg"
+
         guessNum.setText("Guess #" + guessCounter + ": ");
 
         secretButton.addActionListener(new ActionListener() {
@@ -55,7 +58,7 @@ public class LaurieMoo_MainGUI {
                 guessField.setEnabled(true);
                 mooOut.setVisible(true);
 
-                if (guessField.getText().length() == 4){
+                if (guessField.getText().length() == 4) {
                     int newGuess = Integer.parseInt(guessField.getText());
 
                     if (newGuess >= 0 && newGuess < 10000) {
@@ -64,23 +67,21 @@ public class LaurieMoo_MainGUI {
 
                     moo.setGuess(guess);
 
-                    if (moo.getGuess() > 999) { guessField.setText(String.valueOf(moo.getGuess())); }
-                    else if (moo.getGuess() > 99) {
+                    if (moo.getGuess() > 999) {
+                        guessField.setText(String.valueOf(moo.getGuess()));
+                    } else if (moo.getGuess() > 99) {
                         guessField.setText("0" + moo.getGuess());
-                    }
-                    else if (moo.getGuess() > 9) {
+                    } else if (moo.getGuess() > 9) {
                         guessField.setText(("00" + moo.getGuess()));
-                    }
-                    else guessField.setText("000" + moo.getGuess());
+                    } else guessField.setText("000" + moo.getGuess());
 
                     bigMoos = moo.getBigMooCount(guess);
                     littleMoos = moo.getLittleMooCount(guess);
 
-                    if (bigMoos + littleMoos == 0){
+                    if (bigMoos + littleMoos == 0) {
                         mooOut.setVisible(true);
                         mooOut.setText(cowbell);
-                    }
-                    else {
+                    } else {
                         for (int i = 0; i < bigMoos; i++) {
                             moos += "MOO! ";
                         }
@@ -102,11 +103,9 @@ public class LaurieMoo_MainGUI {
                             endOut.setVisible(true);
                             endOut.setText(lose);
                             tryAgain.setVisible(true);
-                        }
-                        else guessNum.setText("Guess #" + guessCounter + ": ");
+                        } else guessNum.setText("Guess #" + guessCounter + ": ");
                     }
-                }
-                else{
+                } else {
                     mooOut.setVisible(true);
                     mooOut.setText("That is not a valid input. Please try Again.");
                 }
@@ -126,12 +125,11 @@ public class LaurieMoo_MainGUI {
         });
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("LaurieMOO");
-        frame.setContentPane(new LaurieMoo_MainGUI().MainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
-    }
+     public static void main(String[] args) {
+         JFrame frame = new JFrame("LaurieMOO");
+         frame.setContentPane(new LaurieMoo_MainGUI().MainPanel);
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         frame.pack();
+         frame.setVisible(true);
+     }
 }
