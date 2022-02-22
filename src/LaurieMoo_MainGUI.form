@@ -114,7 +114,7 @@
           <font name="Consolas" size="20" style="1"/>
           <foreground color="-16777216"/>
           <margin top="10" left="10" bottom="0" right="10"/>
-          <text value="New Game"/>
+          <text value="NEW GAME"/>
         </properties>
       </component>
       <vspacer id="79080">
