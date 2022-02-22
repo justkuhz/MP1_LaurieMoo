@@ -1,6 +1,6 @@
-package test;
+package main;
 
-import java.util.*;
+import java.util.Random;
 
 public class RandomMooValue {
     private int secretValue;
